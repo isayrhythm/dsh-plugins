@@ -3072,14 +3072,16 @@ body[data-ds-dark-theme] .cpa-q-select{color-scheme:dark}
 				}
 				return undefined;
 			}, [stamp]);
-			return h("div", { style: { height: "100%", overflowY: "auto", padding: "20px 24px" } },
-				h("h2", { style: { fontSize: "16px", fontWeight: 600, margin: "0 0 4px" } }, ZH ? "CliProxyAPI 额度" : "CliProxyAPI Quota"),
-				h("p", { style: { fontSize: "12px", opacity: 0.6, margin: "0 0 18px" } },
-					ZH ? "各账号、各厂商的订阅套餐与额度窗口（5 小时 / 每周 / 每月）。" : "Subscription plans and quota windows (5h / weekly / monthly) per account and provider."),
-				entries.length === 0
-					? h("p", { style: { fontSize: "13px", opacity: 0.75 } },
-						ZH ? "暂无数据：请先在 设置 → 插件 → CliProxyAPI 额度 中填入管理密钥。" : "No data yet: set the management key in Settings → Plugins → CliProxyAPI Quota.")
-					: h("div", { ref: hostRef }),
+			return h("div", { style: { height: "100%", overflowY: "auto", padding: "28px 56px 48px", boxSizing: "border-box" } },
+				h("div", { style: { maxWidth: "1000px", margin: "0 auto" } },
+					h("h2", { style: { fontSize: "18px", fontWeight: 600, margin: "0 0 6px" } }, ZH ? "CliProxyAPI 额度" : "CliProxyAPI Quota"),
+					h("p", { style: { fontSize: "12px", opacity: 0.6, margin: "0 0 22px" } },
+						ZH ? "各账号、各厂商的订阅套餐与额度窗口（5 小时 / 每周 / 每月）。" : "Subscription plans and quota windows (5h / weekly / monthly) per account and provider."),
+					entries.length === 0
+						? h("p", { style: { fontSize: "13px", opacity: 0.75 } },
+							ZH ? "暂无数据：请先在 设置 → 插件 → CliProxyAPI 额度 中填入管理密钥。" : "No data yet: set the management key in Settings → Plugins → CliProxyAPI Quota.")
+						: h("div", { ref: hostRef }),
+				),
 			);
 		}
 		function apply(ctx, configArg) {
