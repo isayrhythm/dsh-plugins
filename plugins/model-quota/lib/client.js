@@ -3104,7 +3104,7 @@ body[data-ds-dark-theme] .cpa-q-select{color-scheme:dark}
 			let quotaTimer = 0;
 
 			const styleTag = document.createElement("style");
-			styleTag.dataset.plugin = "dsh-client-ui-cpa-quota";
+			styleTag.dataset.plugin = "dsh-model-quota";
 			styleTag.textContent = styleText();
 			document.head.appendChild(styleTag);
 

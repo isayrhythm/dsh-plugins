@@ -89,7 +89,7 @@ export const Config = Object.assign(
 	},
 );
 
-export const name = "dsh-client-ui-cpa-quota";
+export const name = "dsh-model-quota";
 export const inject = [];
 
 /** Host plugin body: serve the settings section that lists the browser card. */
