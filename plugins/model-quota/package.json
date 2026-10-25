@@ -1,0 +1,60 @@
+{
+  "name": "dsh-model-quota",
+  "version": "0.10.0",
+  "description": "Model quota panel for DeepSeek Harness: a first-class sidebar entry (插件 / 自动化任务 / 模型额度) that opens per-account and per-provider subscription quotas — 5-hour, weekly and monthly windows — read from a CliProxyAPI instance, plus the composer ring.",
+  "author": "isayrhythm",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/isayrhythm/dsh-plugins.git",
+    "directory": "plugins/model-quota"
+  },
+  "homepage": "https://github.com/isayrhythm/dsh-plugins/tree/main/plugins/model-quota",
+  "bugs": {
+    "url": "https://github.com/isayrhythm/dsh-plugins/issues"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "quota",
+    "cliproxyapi",
+    "antigravity",
+    "usage"
+  ],
+  "type": "module",
+  "files": [
+    "lib/",
+    "cordis.patch.yml",
+    "assets/screenshots/",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "check": "node --check lib/client.js && node --check lib/index.js"
+  },
+  "main": "lib/index.js",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./client": {
+      "default": "./lib/client.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-runtime",
+        "@deepseek-ai/dsh-client-connection",
+        "@deepseek-ai/dsh-client-ui-slots",
+        "@deepseek-ai/dsh-client-ui-settings-plugins"
+      ],
+      "platform": "web"
+    }
+  },
+  "license": "MIT"
+}
