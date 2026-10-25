@@ -1,6 +1,6 @@
 {
   "name": "dsh-model-quota",
-  "version": "0.10.2",
+  "version": "0.10.3",
   "description": "Model quota panel for DeepSeek Harness: a first-class sidebar entry (插件 / 自动化任务 / 模型额度) that opens per-account and per-provider subscription quotas — 5-hour, weekly and monthly windows — read from a CliProxyAPI instance, plus the composer ring.",
   "author": "isayrhythm",
   "repository": {

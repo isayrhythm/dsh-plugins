@@ -2060,7 +2060,10 @@ window.__ModuleLoader__.load({
 									Authorization: "Bearer $TOKEN$",
 									"Content-Type": "application/json",
 									"User-Agent": summaryEndpoint
-										? "antigravity/cli/1.0.13 (aidev_client; os_type=darwin; arch=arm64)"
+										? "antigravity/2.26.0 windows/amd64"
+										// UA must be a desktop-app version >= 2.x: older / "cli" user agents
+										// get a quota summary WITHOUT the Gemini group, which silently drops
+										// the weekly Gemini window.
 										: "antigravity/1.11.5 windows/amd64",
 								},
 								data: JSON.stringify({ project: projectID }),
