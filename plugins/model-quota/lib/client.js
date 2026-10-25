@@ -3075,10 +3075,17 @@ body[data-ds-dark-theme] .cpa-q-select{color-scheme:dark}
 				}
 				return undefined;
 			}, [stamp]);
-			return h("div", { style: { height: "100%", overflowY: "auto", padding: "28px 56px 48px", boxSizing: "border-box" } },
+			// The page owns the scroll (the shell center column is overflow:hidden), but the
+			// scrollbar itself stays invisible, and the account panel keeps no own cap —
+			// every account renders in one flow instead of inside a 340px inner scroller.
+			const pageCss = ".cpa-q-page{scrollbar-width:none;-ms-overflow-style:none}"
+				+ ".cpa-q-page::-webkit-scrollbar{display:none;width:0;height:0}"
+				+ ".cpa-q-page .cpa-q-accounts{max-height:none;overflow:visible;border-top:none;margin-top:0;padding:0}";
+			return h("div", { className: "cpa-q-page", style: { height: "100%", overflowY: "auto", padding: "18px 56px 28px", boxSizing: "border-box" } },
+				h("style", null, pageCss),
 				h("div", { style: { maxWidth: "1000px", margin: "0 auto" } },
 					h("h2", { style: { fontSize: "18px", fontWeight: 600, margin: "0 0 6px" } }, ZH ? "CliProxyAPI 额度" : "CliProxyAPI Quota"),
-					h("p", { style: { fontSize: "12px", opacity: 0.6, margin: "0 0 22px" } },
+					h("p", { style: { fontSize: "12px", opacity: 0.6, margin: "0 0 14px" } },
 						ZH ? "各账号、各厂商的订阅套餐与额度窗口（5 小时 / 每周 / 每月）。" : "Subscription plans and quota windows (5h / weekly / monthly) per account and provider."),
 					entries.length === 0
 						? h("p", { style: { fontSize: "13px", opacity: 0.75 } },
